@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" starts a Flask web application2:
+""" starts a Flask web application:
 
     /: display “Hello HBNB!”
     /hbnb: display “HBNB”
