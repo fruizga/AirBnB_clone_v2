@@ -1,12 +1,5 @@
 #!/usr/bin/python3
-""" starts a Flask web application2:
-
-    /: display “Hello HBNB!”
-    /hbnb: display “HBNB”
-    /c/<text>: display “C ” followed by the value of the text variable
-    (replace underscore _ symbols with a space )
-
-"""
+""" starts a Flask web application2: """
 from flask import Flask
 app = Flask(__name__)
 
@@ -27,6 +20,19 @@ def hbnb():
 def CisFun(text):
     """ c is fun """
     return ("C {}".format(text.replace('_', ' ')))
+
+
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def Python_IsCool(text="is cool"):
+    """ python is cool """
+    return ("Python {}".format(text.replace('_', ' ')))
+
+
+@app.route('/number/<int:n>', strict_slashes=False)
+def CheckNumInt(n):
+    """ Evaluates if num is int """
+    return ("{:d} is a number".format(n))
 
 
 if __name__ == "__main__":

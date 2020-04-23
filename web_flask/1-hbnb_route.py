@@ -8,13 +8,13 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def StartAPI():
-    """ Start on port :5000 """
+    """ Starts on port :5000 """
     return ("Hello HBNB!")
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """ Display /hbnb """
+    """ Displaying /hbnb """
     return("HBNB")
 
 if __name__ == "__main__":

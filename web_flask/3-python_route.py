@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-""" starts a Flask web application2:
+""" starts a Flask web application:
 
-    /: display “Hello HBNB!”
-    /hbnb: display “HBNB”
-    /c/<text>: display “C ” followed by the value of the text variable
-    (replace underscore _ symbols with a space )
+The default value of text is “is cool”
 
+You must use the option strict_slashes=False in your route definition
 """
 from flask import Flask
 app = Flask(__name__)
@@ -19,7 +17,7 @@ def StartAPI():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """ Displaying /hbnb """
+    """ Display /hbnb """
     return ("HBNB")
 
 
@@ -27,6 +25,13 @@ def hbnb():
 def CisFun(text):
     """ c is fun """
     return ("C {}".format(text.replace('_', ' ')))
+
+
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def Python_IsCool(text="is cool"):
+    """ python is cool """
+    return ("Python {}".format(text.replace('_', ' ')))
 
 
 if __name__ == "__main__":
