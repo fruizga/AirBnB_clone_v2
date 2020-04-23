@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" starts a Flask web application2:
+""" starts a Flask web application:
 use the option strict_slashes=False in your route definition
 """
 from flask import Flask

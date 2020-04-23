@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """ starts a Flask web application:
 
-        he default value of text is “is cool”
-    /number/<n>: display “n is a number” only if n is an integer
+H1 tag: “Number: n” inside the tag BODY
 
-You must use the option strict_slashes=False in your route definition
 """
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -15,18 +13,15 @@ def StartAPI():
     """ Starts on port :5000 """
     return ("Hello HBNB!")
 
-
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """ Displaying /hbnb """
     return ("HBNB")
 
-
 @app.route('/c/<text>', strict_slashes=False)
 def CisFun(text):
     """ c is fun """
     return ("C {}".format(text.replace('_', ' ')))
-
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
@@ -34,11 +29,15 @@ def Python_IsCool(text="is cool"):
     """ python is cool """
     return ("Python {}".format(text.replace('_', ' ')))
 
-
 @app.route('/number/<int:n>', strict_slashes=False)
 def CheckNumInt(n):
     """ Evaluates if num is int """
     return ("{:d} is a number".format(n))
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_view(n):
+    """html view for numbers"""
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == "__main__":
